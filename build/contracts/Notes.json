@@ -1,0 +1,82 @@
+{
+  "contractName": "Notes",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.14+commit.80d49f37\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Notes.sol\":\"Notes\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Notes.sol\":{\"keccak256\":\"0x636d20874efa1bac346b63fd3769967e021ae3baa8616cf8192468b94af04a2e\",\"urls\":[\"bzz-raw://025dceb7e6c5c4b1f746d784b12d39e157ea591cc6a1bc755176f4421fa232d6\",\"dweb:/ipfs/Qmb8apcRATFdyaCCRbB5jodf1e5z69KMtuHL1mwVUL4Q2d\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220bdc9b0f7ef4d5d5b0a387f1b2971f7400ddc2d58cf95314849faf5d68e46903464736f6c634300080e0033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220bdc9b0f7ef4d5d5b0a387f1b2971f7400ddc2d58cf95314849faf5d68e46903464736f6c634300080e0033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "25:17:1:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "25:17:1:-:0;;;;;",
+  "source": "pragma solidity ^0.8.7;\n\ncontract Notes {}\n",
+  "sourcePath": "/Users/ed/Projects/notes-blockchain/contracts/Notes.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Notes.sol",
+    "exportedSymbols": {
+      "Notes": [
+        35
+      ]
+    },
+    "id": 36,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 34,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".7"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "Notes",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 35,
+        "linearizedBaseContracts": [
+          35
+        ],
+        "name": "Notes",
+        "nameLocation": "34:5:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 36,
+        "src": "25:17:1",
+        "usedErrors": []
+      }
+    ],
+    "src": "0:43:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.14+commit.80d49f37.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xa934dF4D1A5D00Ac4b7449C2c75b5AD83F4E2659",
+      "transactionHash": "0xf30ee68493b23e50dc8fde8533ac595e1e7ee307b1c46e7b2f7143c205def1b4"
+    }
+  },
+  "schemaVersion": "3.4.7",
+  "updatedAt": "2022-05-25T15:53:41.861Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
