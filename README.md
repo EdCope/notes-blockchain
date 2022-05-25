@@ -9,8 +9,6 @@ Install Truffle globally ```npm i -g truffle```
 ## Run
 `npm run start` starts a express server to interact with the blockchain.
 
-Launch a local blockchain by running
-```NODE_OPTIONS=--openssl-legacy-provider```
-```truffle develop```
+`npm run bc` launch a local blockchain.
 
 In truffle develop run ```migrate -reset``` to recompile changes to contracts.
