@@ -1,0 +1,22 @@
+{
+  "name": "notes-blockchain",
+  "version": "1.0.0",
+  "description": "Learning to interact with simple data on a blockchain.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdCope/notes-blockchain.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EdCope/notes-blockchain/issues"
+  },
+  "homepage": "https://github.com/EdCope/notes-blockchain#readme",
+  "dependencies": {
+  }
+}
