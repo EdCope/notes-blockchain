@@ -28,7 +28,6 @@ app.set('view engine', 'hbs');
 app.get('/', async (req,res) => {
   console.log('Loading from the blockchain');
   const accounts = await web3.eth.getAccounts();
-  console.log(NotesContract.methods);
   const presetMessage = await NotesContract.methods.readFromContract().call();
   res.render('index', {accounts: accounts, contract: NotesContract, presetMessage: presetMessage});
 })
