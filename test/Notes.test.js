@@ -15,4 +15,9 @@ contract('Notes', () => {
     const result = await notes.getOwner();
     assert(result === 'Unknown User');
   })
+  it('can set the value of the owner of this contract', async () => {
+    const notes = await Notes.deployed();
+    await notes.setOwner('Ed');
+    assert(await notes.getOwner() === 'Ed');
+  })
 });

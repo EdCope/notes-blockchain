@@ -7,6 +7,10 @@ contract Notes {
     return contractOwner;
   }
 
+  function setOwner(string memory input) public {
+    contractOwner = input;
+  }
+
   function readFromContract() pure public returns(string memory) {
     return 'Preset note';
   }
