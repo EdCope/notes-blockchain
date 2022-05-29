@@ -10,4 +10,9 @@ contract('Notes', () => {
     const result = await notes.readFromContract();
     assert(result === 'Preset note');
   })
+  it('the initial value of the owner of a smart contract', async () => {
+    const notes = await Notes.deployed();
+    const result = await notes.getOwner();
+    assert(result === 'Unknown User');
+  })
 });
