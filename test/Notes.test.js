@@ -27,6 +27,11 @@ contract('Notes', () => {
       const result = await notes.getNotes();
       expect(result).to.deep.equal([]);
     })
+    it('adds a note to the array', async () => {
+      await notes.addNote('Sample Note');
+      const result = await notes.getNotes();
+      assert(result[0] === 'Sample Note');
+    })
   })
   
 });

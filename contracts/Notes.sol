@@ -10,6 +10,10 @@ contract Notes {
     return notes;
   }
 
+  function addNote(string memory note) public {
+    notes.push(note);
+  }
+
   function getOwner() view public returns (string memory) {
     return contractOwner;
   }
