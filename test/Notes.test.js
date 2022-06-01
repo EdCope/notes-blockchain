@@ -12,12 +12,21 @@ contract('Notes', () => {
     const result = await notes.readFromContract();
     assert(result === 'Preset note');
   })
-  it('the initial value of the owner of a smart contract', async () => {
-    const result = await notes.getOwner();
-    assert(result === 'Unknown User');
+  describe('Owner', () => {
+    it('the initial value of the owner of a smart contract', async () => {
+      const result = await notes.getOwner();
+      assert(result === 'Unknown User');
+    })
+    it('can set the value of the owner of this contract', async () => {
+      await notes.setOwner('Ed');
+      assert(await notes.getOwner() === 'Ed');
+    })
   })
-  it('can set the value of the owner of this contract', async () => {
-    await notes.setOwner('Ed');
-    assert(await notes.getOwner() === 'Ed');
+  describe('Notes', () => {
+    it('starts with an empty notes array', async () => {
+      const result = await notes.getNotes();
+      expect(result).to.deep.equal([]);
+    })
   })
+  
 });
