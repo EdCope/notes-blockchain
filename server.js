@@ -84,7 +84,7 @@ app.get('/owner', async (req, res) => {
 
 app.post('/setOwner', async (req, res) => {
 	await NotesContract.methods.setOwner(req.body.name).send({from: '0x90adb54c32eb3ed3752ef5827b38d3581fa71b3b'});
-	res.redirect('/');
+	res.json({succ: 'yes'});
 })
 
 app.listen(port, () => {
