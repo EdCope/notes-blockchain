@@ -1,13 +1,11 @@
 document.addEventListener('DOMContentLoaded', async () => {
-  const name = document.getElementById('owner');
   const setName = document.getElementById('setOwner');
   setName.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formName = e.target.elements[0].value;
     await setOwner(formName);
   })
-  const owner = await getOwner();
-  name.innerHTML = owner.name;
+  loadName();
 })
 
 const getOwner = async () => {
@@ -16,7 +14,7 @@ const getOwner = async () => {
 }
 
 const setOwner = async (formName) => {
-  const res = await fetch('http://localhost:3000/setOwner', {
+  await fetch('http://localhost:3000/setOwner', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -24,8 +22,11 @@ const setOwner = async (formName) => {
     },
     body: JSON.stringify({ name: formName })
   })
-  const bla = document.getElementById('owner');
-  const newt = await getOwner()
-  bla.innerHTML = newt.name;
-  
+  loadName();
+}
+
+const loadName = async () => {
+  const name = document.getElementById('owner');
+  const owner = await getOwner();
+  name.innerHTML = owner.name;
 }
