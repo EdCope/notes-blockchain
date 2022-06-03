@@ -5,6 +5,7 @@ Learning to interact with simple data on a blockchain.
 ## Installation
 
 Install Truffle globally ```npm i -g truffle```
+Install MetaMask extension (tested in version 10.14.6) in Chrome for using with a wallet otherwise it will rely on the local blockchain.
 
 ## Testing
 
