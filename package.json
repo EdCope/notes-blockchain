@@ -6,6 +6,7 @@
   "scripts": {
     "start": "nodemon server.js",
     "bc": "export NODE_OPTIONS=--openssl-legacy-provider&& truffle develop",
+    "build": "esbuild public/view.js --bundle --outfile=public/bundle.js --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/EdCope/notes-blockchain#readme",
   "dependencies": {
+    "esbuild": "^0.14.42",
     "express": "^4.18.1",
     "hbs": "^4.2.0",
     "web3": "^1.7.3"
