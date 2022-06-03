@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const formName = e.target.elements[0].value;
     await setOwner(formName);
   })
+  const web3 = new Web3('http://localhost:9545');
+  console.log(await web3.eth.getAccounts());
+
   loadName();
 })
 
