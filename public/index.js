@@ -7,12 +7,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   const notesContract = new Notes();
   await notesContract.init(web3);
   const setOwner = document.getElementById('setOwner');
+  const addNote = document.getElementById('addNote');
   setOwner.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formName = e.target.elements[0].value;
     await notesContract.setName(formName);
   })
+  addNote.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const note = e.target.elements[0].value;
+    await notesContract.addNote(note);
+  })
   notesContract.loadName();
+  notesContract.getNotes();
+  
 });
 
 const initWeb3 = () => {
