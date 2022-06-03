@@ -5436,8 +5436,8 @@
       }
     });
   };
-  var notesContract = (web32) => {
-    return new web32.eth.Contract(Notes_default.abi, Notes_default.networks["5777"].address);
+  var notesContract = () => {
+    return new web3.eth.Contract(Notes_default.abi, Notes_default.networks["5777"].address);
   };
   var setName = async (formName) => {
     await contract.methods.setOwner(formName).send({ from: "0x90adb54c32eb3ed3752ef5827b38d3581fa71b3b" });

@@ -30,7 +30,7 @@ const initWeb3 = () => {
   })
 }
 
-const notesContract = (web3) => {
+const notesContract = () => {
   return new web3.eth.Contract(Contract.abi, Contract.networks['5777'].address)
 }
 
