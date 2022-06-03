@@ -5408,19 +5408,38 @@
     userdoc
   };
 
+  // public/notes.js
+  var Notes = class {
+    constructor() {
+      this.contract = null;
+    }
+    async init(web32) {
+      this.contract = new web32.eth.Contract(Notes_default.abi, Notes_default.networks["5777"].address);
+    }
+    async loadName() {
+      const name = document.getElementById("owner");
+      const owner = await this.contract.methods.getOwner().call();
+      name.innerHTML = owner;
+    }
+    async setName(formName) {
+      await this.contract.methods.setOwner(formName).send({ from: "0x90adb54c32eb3ed3752ef5827b38d3581fa71b3b" });
+      this.loadName(this.contract);
+    }
+  };
+
   // public/view.js
   var web3;
-  var contract;
   document.addEventListener("DOMContentLoaded", async () => {
     web3 = await initWeb3();
-    contract = await notesContract(web3);
+    const noteContract = new Notes();
+    await noteContract.init(web3);
     const setOwner = document.getElementById("setOwner");
     setOwner.addEventListener("submit", async (e) => {
       e.preventDefault();
       const formName = e.target.elements[0].value;
-      await setName(formName);
+      await noteContract.setName(formName);
     });
-    loadName();
+    noteContract.loadName();
   });
   var initWeb3 = () => {
     return new Promise(async (res, rej) => {
@@ -5435,17 +5454,5 @@
         res(new Web3("http://localhost:9545"));
       }
     });
-  };
-  var notesContract = () => {
-    return new web3.eth.Contract(Notes_default.abi, Notes_default.networks["5777"].address);
-  };
-  var setName = async (formName) => {
-    await contract.methods.setOwner(formName).send({ from: "0x90adb54c32eb3ed3752ef5827b38d3581fa71b3b" });
-    loadName();
-  };
-  var loadName = async () => {
-    const name = document.getElementById("owner");
-    const owner = await contract.methods.getOwner().call();
-    name.innerHTML = owner;
   };
 })();

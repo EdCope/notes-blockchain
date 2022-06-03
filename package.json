@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server.js",
     "bc": "export NODE_OPTIONS=--openssl-legacy-provider&& truffle develop",
-    "build": "esbuild public/view.js --bundle --outfile=public/bundle.js --watch",
+    "build": "esbuild public/index.js --bundle --outfile=public/bundle.js --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
