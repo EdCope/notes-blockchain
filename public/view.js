@@ -1,15 +1,29 @@
 document.addEventListener('DOMContentLoaded', async () => {
+  await initWeb3();
   const setName = document.getElementById('setOwner');
   setName.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formName = e.target.elements[0].value;
     await setOwner(formName);
   })
-  const web3 = new Web3('http://localhost:9545');
-  console.log(await web3.eth.getAccounts());
-
   loadName();
-})
+});
+
+const initWeb3 = () => {
+  return new Promise(async (res, rej) => {
+    //is metamask available?
+    if(typeof window.ethereum !== 'undefined'){
+      try{
+        await window.ethereum.enable()
+        return res(new Web3(window.ethereum));
+      } catch (err) {
+        rej(err);
+      }
+    }else {
+      res(new Web3('http://localhost:9545'));
+    }
+  })
+}
 
 const getOwner = async () => {
   const res = await fetch('http://localhost:3000/owner')
