@@ -1,15 +1,17 @@
 import Contract from '../build/contracts/Notes.json';
 
+let web3, contract;
+
 document.addEventListener('DOMContentLoaded', async () => {
-  const web3 = await initWeb3();
-  const contract = await notesContract(web3);
-  const setName = document.getElementById('setOwner');
-  setName.addEventListener('submit', async (e) => {
+  web3 = await initWeb3();
+  contract = await notesContract(web3);
+  const setOwner = document.getElementById('setOwner');
+  setOwner.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formName = e.target.elements[0].value;
-    await setOwner(formName);
+    await setName(formName);
   })
-  loadName(contract);
+  loadName();
 });
 
 const initWeb3 = () => {
@@ -32,19 +34,12 @@ const notesContract = (web3) => {
   return new web3.eth.Contract(Contract.abi, Contract.networks['5777'].address)
 }
 
-const setOwner = async (formName) => {
-  await fetch('http://localhost:3000/setOwner', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ name: formName })
-  })
-  loadName(contract);
+const setName = async (formName) => {
+  await contract.methods.setOwner(formName).send({from: '0x90adb54c32eb3ed3752ef5827b38d3581fa71b3b'});
+  loadName();
 }
 
-const loadName = async (contract) => {
+const loadName = async () => {
   const name = document.getElementById('owner');
   const owner = await contract.methods.getOwner().call();
   name.innerHTML = owner;
