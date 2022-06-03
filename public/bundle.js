@@ -5411,15 +5411,14 @@
   // public/view.js
   document.addEventListener("DOMContentLoaded", async () => {
     const web3 = await initWeb3();
-    const contract = await notesContract(web3);
-    console.log(contract);
+    const contract2 = await notesContract(web3);
     const setName = document.getElementById("setOwner");
     setName.addEventListener("submit", async (e) => {
       e.preventDefault();
       const formName = e.target.elements[0].value;
       await setOwner(formName);
     });
-    loadName();
+    loadName(contract2);
   });
   var initWeb3 = () => {
     return new Promise(async (res, rej) => {
@@ -5438,10 +5437,6 @@
   var notesContract = (web3) => {
     return new web3.eth.Contract(Notes_default.abi, Notes_default.networks["5777"].address);
   };
-  var getOwner = async () => {
-    const res = await fetch("http://localhost:3000/owner");
-    return await res.json();
-  };
   var setOwner = async (formName) => {
     await fetch("http://localhost:3000/setOwner", {
       method: "POST",
@@ -5451,11 +5446,11 @@
       },
       body: JSON.stringify({ name: formName })
     });
-    loadName();
+    loadName(contract);
   };
-  var loadName = async () => {
+  var loadName = async (contract2) => {
     const name = document.getElementById("owner");
-    const owner = await getOwner();
-    name.innerHTML = owner.name;
+    const owner = await contract2.methods.getOwner().call();
+    name.innerHTML = owner;
   };
 })();
